@@ -11,12 +11,22 @@ public:       // Access specifier
     int year;
     string class_teacher_name;
 
-    void increase_size(int additional_size)
+    // We can add methods which can even have default parameters
+    void increase_size(int additional_size = 5)
     {
         size = size + additional_size;
     }
 
+    // We can also declare methods in the class and then
+    // declare them outside the class
+    void set_class_teacher_name(string new_class_teacher_name);
+
 }; // terminate with semi-colon
+
+void CustomClass::set_class_teacher_name(string new_class_teacher_name)
+{
+    class_teacher_name = new_class_teacher_name;
+}
 
 int main()
 {
@@ -34,6 +44,10 @@ int main()
     // Increase size
     customObject.increase_size(7);
     cout << "customObject.size increased to: " << customObject.size << endl;
+
+    // Use default parameter
+    customObject.increase_size();
+    cout << "customObject.size, by default, increased to: " << customObject.size << endl;
 
     return 0;
 }
