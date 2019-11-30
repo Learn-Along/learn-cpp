@@ -33,3 +33,6 @@
 
 # output
 bin
+
+# custom
+somefile.txt
