@@ -6,17 +6,26 @@ using namespace std;
 // decalaration of a class
 class CustomClass
 {
+private:
+    string class_name;
+
 public:       // Access specifier
     int size; // attribute
     int year;
     string class_teacher_name;
 
     // Constructors have to be public
-    CustomClass(int size_of_class, int currentYear, string current_class_teacher_name)
+    CustomClass(int size_of_class, int currentYear, string current_class_teacher_name, string name)
     {
+        class_name = name;
         size = size_of_class;
         year = currentYear;
         class_teacher_name = current_class_teacher_name;
+    }
+
+    string get_class_name()
+    {
+        return class_name;
     }
 
     // We can add methods which can even have default parameters
@@ -41,7 +50,7 @@ int main()
 {
     // instantiation is as though one is decalring a new variable
     // of type of the class
-    CustomClass customObject(20, 1999, "Mr. Musinguzi");
+    CustomClass customObject(20, 1999, "Mr. Musinguzi", "S1 A");
     cout << "customObject.size: " << customObject.size << endl;
     cout << "customObject.class_teacher_name: "
          << customObject.class_teacher_name << endl;
@@ -72,7 +81,16 @@ int main()
     // the method was defined normally
     customObject.set_class_teacher_name("Tr. Mwine");
     cout << "customObject.class_teacher_name was changed to: "
-         << customObject.class_teacher_name << endl;
+         << customObject.class_teacher_name << endl
+         << endl;
+
+    // Class name is a private attribute.
+    // Attempting to access it outside the class will throw
+    // an error during compilation.
+    // I have commented it out so that the code may run
+    // cout << customObject.class_name;
+    cout << "customObject.get_class_name() returns: "
+         << customObject.get_class_name() << endl;
 
     return 0;
 }
