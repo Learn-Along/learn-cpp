@@ -7,6 +7,10 @@ class ParentClassOne
 {
 public:
     string headmaster;
+    string print_itself()
+    {
+        cout << "ParentClassOne" << endl;
+    }
 
 protected:
     string school_name;
@@ -67,6 +71,11 @@ public:       // Access specifier
     string get_district()
     {
         return district;
+    }
+
+    string print_itself()
+    {
+        cout << "CustomClass" << endl;
     }
 
 }; // terminate with semi-colon
@@ -136,6 +145,9 @@ int main()
     // public attributes are passed down to the child classes
     customObject.headmaster = "M. A. Alexander";
     cout << "customObject.headmaster: " << customObject.headmaster << endl;
+
+    // Methods can be overridden in the child classes
+    customObject.print_itself();
 
     return 0;
 }
