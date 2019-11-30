@@ -14,7 +14,7 @@ int main()
     // See https://stackoverflow.com/questions/40568925/qt-ofstream-use-variable-as-a-path-name
 
     // create file
-    ofstream my_file("somefile1.txt");
+    ofstream my_file("somefile.txt");
 
     // write to file
     for (int index = 0; index < 5; ++index)
@@ -23,7 +23,7 @@ int main()
     }
     my_file.close();
 
-    ifstream my_file_handle("somefile1.txt");
+    ifstream my_file_handle("somefile.txt");
 
     // read from file using the getline(file_handle, variable)
     string line;
