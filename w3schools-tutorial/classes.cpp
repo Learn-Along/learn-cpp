@@ -3,8 +3,26 @@
 
 using namespace std;
 
+class ParentClassOne
+{
+public:
+    string headmaster;
+
+protected:
+    string school_name;
+
+private:
+    int school_population;
+};
+
+class ParentClassTwo
+{
+protected:
+    string district;
+};
+
 // decalaration of a class
-class CustomClass
+class CustomClass : public ParentClassOne, public ParentClassTwo
 {
 private:
     string class_name;
@@ -21,6 +39,9 @@ public:       // Access specifier
         size = size_of_class;
         year = currentYear;
         class_teacher_name = current_class_teacher_name;
+        headmaster = "M. A. Alexander";
+        school_name = "Makerere University";
+        district = "Kampala";
     }
 
     string get_class_name()
@@ -37,6 +58,16 @@ public:       // Access specifier
     // We can also declare methods in the class and then
     // declare them outside the class
     void set_class_teacher_name(string new_class_teacher_name);
+
+    string get_school_name()
+    {
+        return school_name;
+    }
+
+    string get_district()
+    {
+        return district;
+    }
 
 }; // terminate with semi-colon
 
@@ -90,7 +121,21 @@ int main()
     // I have commented it out so that the code may run
     // cout << customObject.class_name;
     cout << "customObject.get_class_name() returns: "
-         << customObject.get_class_name() << endl;
+         << customObject.get_class_name() << endl
+         << endl;
+
+    // Inheritance using comma separated, access specified
+    // lists of parent classes and :
+
+    // the protected attributes can be accessed in child classes
+    // but not outside. The line below throws an error
+    // customObject.school_name;
+    cout << "customObject.get_school_name(): " << customObject.get_school_name() << endl;
+    cout << "customObject.get_district(): " << customObject.get_district() << endl;
+
+    // public attributes are passed down to the child classes
+    customObject.headmaster = "M. A. Alexander";
+    cout << "customObject.headmaster: " << customObject.headmaster << endl;
 
     return 0;
 }
