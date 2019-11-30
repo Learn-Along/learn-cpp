@@ -23,6 +23,7 @@ public:       // Access specifier
 
 }; // terminate with semi-colon
 
+// A method of Custom Class defined outside the class using ::
 void CustomClass::set_class_teacher_name(string new_class_teacher_name)
 {
     class_teacher_name = new_class_teacher_name;
@@ -38,7 +39,8 @@ int main()
     customObject.year = 2019;
 
     cout << "customObject.size: " << customObject.size << endl;
-    cout << "customObject.class_teacher_name: " << customObject.class_teacher_name << endl;
+    cout << "customObject.class_teacher_name: "
+         << customObject.class_teacher_name << endl;
     cout << "customObject.year: " << customObject.year << endl;
 
     // Increase size
@@ -47,7 +49,14 @@ int main()
 
     // Use default parameter
     customObject.increase_size();
-    cout << "customObject.size, by default, increased to: " << customObject.size << endl;
+    cout << "customObject.size, by default, increased to: "
+         << customObject.size << endl;
+
+    // Calling the externally defined method is as though
+    // the method was defined normally
+    customObject.set_class_teacher_name("Tr. Mwine");
+    cout << "customObject.class_teacher_name was changed to: "
+         << customObject.class_teacher_name << endl;
 
     return 0;
 }
